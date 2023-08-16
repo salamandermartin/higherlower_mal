@@ -15,5 +15,5 @@ class AnimePool:
 
             self.pool[i].members = more_info_string.json()['num_list_users']
             self.pool[i].rating = more_info_string.json()['mean']
-            
+            self.pool[i].picture = more_info_string.json()['main_picture']['large']
             

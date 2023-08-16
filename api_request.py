@@ -22,4 +22,4 @@ def api_call_get_more_info(id):
 	return response
 
 #print(api_call_get_list().json()['data'][0]['node']['id'])
-#print(api_call_get_more_info(16498).json()['mean'])
+print(api_call_get_more_info(16498).json()['main_picture']['large'])

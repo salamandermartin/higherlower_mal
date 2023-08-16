@@ -4,6 +4,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", template_folder = 'templates', static_folder = 'static')
 
 app.run(host='0.0.0.0', port = 5001)
