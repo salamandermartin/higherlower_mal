@@ -18,10 +18,7 @@ class AnimePool:
 
             self.pool[i] = AnimeItem(anime_name, members, rating, id, picture)
 
-
-            
     def shuffle_order(self):
         random.shuffle(self.pool)
         return self.pool
     
-this = AnimePool(500)
