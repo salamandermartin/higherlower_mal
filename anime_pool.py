@@ -1,19 +1,27 @@
 from api_request import *
 from anime_item import AnimeItem
+import random
 
 class AnimePool:
     def __init__(self, limit):
-        self.pool = [AnimeItem() for i in range(limit)]
+        self.pool = [None for i in range(limit)]
         
         api_list_string = api_call_get_list()
-
-        for i in range(500):
-            self.pool[i].anime_name = api_list_string.json()['data'][i]['node']['title']
-            self.pool[i].id = api_list_string.json()['data'][i]['node']['id']
-
-            more_info_string = api_call_get_more_info(self.pool[i].id)
-
-            self.pool[i].members = more_info_string.json()['num_list_users']
-            self.pool[i].rating = more_info_string.json()['mean']
-            self.pool[i].picture = more_info_string.json()['main_picture']['large']
+        for i in range(limit):
+            anime_name = api_list_string.json()['data'][i]['node']['title']
+            id = api_list_string.json()['data'][i]['node']['id']
             
+            #more_info_string = api_call_get_more_info(id)
+            members = api_list_string.json()['data'][i]['node']['num_list_users']
+            rating = api_list_string.json()['data'][i]['node']['mean']
+            picture = api_list_string.json()['data'][i]['node']['main_picture']['large']
+
+            self.pool[i] = AnimeItem(anime_name, members, rating, id, picture)
+
+
+            
+    def shuffle_order(self):
+        random.shuffle(self.pool)
+        return self.pool
+    
+this = AnimePool(500)
