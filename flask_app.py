@@ -1,11 +1,23 @@
 from flask import Flask, render_template
-from anime_pool import *
+from api_request import *
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
-    anime_list = AnimePool(500)
+    anime_list = api_call_get_list()
     return render_template("index.html", template_folder = 'templates', static_folder = 'static', anime_list = anime_list)
+
+async def get_list_data():
+    await api_call_get_list
+    return api_call_get_list()
+
+@app.route("/data")
+async def get_list():
+    data = await get_list_data()
+    return data
+
+
+
 
 app.run(host='0.0.0.0', port = 5001)

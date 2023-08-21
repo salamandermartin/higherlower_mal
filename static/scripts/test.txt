@@ -1,0 +1,8 @@
+780
+
+260 - savings/index
+200 - credit card
+ 70 - gym
+ 45 - ymca
+
+205 - leftover
