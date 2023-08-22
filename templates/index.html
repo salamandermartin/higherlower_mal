@@ -7,21 +7,26 @@
     <script src="/static/scripts/getPool.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+    <script>
+        let animePool = new AnimePool();
+    </script>
+
 
 </head>
 
 <body>
+
     <div id = 'background'>
         <div id = 'content-container'>
             <div class = "text-center">
                 <h1 class = 'heading'> MAL Higher or Lower</h1>
 
                 <p> Can you guess which anime ranks higher in terms of popularity? </p>
-                <p> {{anime_list}}</p>
+
 
 
                 <div class='play-button' onclick="loadGame()">Play</div>
-                <div class='play-button' onclick="getPool()">Something Else</div>
+                <div class='play-button' onclick="animePool.printPool()">Something Else</div>
             </div>
 
         </div>
