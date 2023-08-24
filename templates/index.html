@@ -4,20 +4,28 @@
     <meta name = 'viewport' content = 'width=device-width' />
     <link rel="stylesheet" href="/static/styles.css" type="text/css" />
     <link rel="stylesheet" href="/static/gameIPstyles.css" />
-    <script src="/static/scripts/playButton.js"></script>
     <script src="/static/scripts/getPool.js"></script>
+    <script src="/static/scripts/playButton.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     
 
-    <script>
-        let animePool = new AnimePool();
+    <script type="text/javascript">
+        let data_json = '{{anime_list}}';
+
+        let animePool = new AnimePool(data_json);
+        let num1 = animePool.pullFromPool();
+        let num2 = animePool.pullFromPool();
+        
+        let data1 = animePool.queryData(num1);
+        let data2 = animePool.queryData(num2);
+        //console.log(data1);
+
     </script>
 
 
 </head>
 
 <body>
-
     <div id = 'background'>
         <div id = 'content-container'>
             <div class = "text-center">
@@ -25,10 +33,7 @@
 
                 <p> Can you guess which anime ranks higher in terms of popularity? </p>
 
-
-
-                <div class='play-button' onclick="loadGame()">Play</div>
-                <div class='play-button' onclick="animePool.printPool()">Something Else</div>
+                <div class='play-button' onclick="loadGameStart(data1, data2)">Play</div>
             </div>
 
         </div>
