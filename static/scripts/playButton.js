@@ -20,8 +20,8 @@ function loadGameStart(data1, data2) {
 
 
 
-    document.getElementById('content1').innerHTML = `<h2>${data1.title}</h2>`;
-    document.getElementById('content2').innerHTML = `<h2>${data2.title}</h2>`;
+    document.getElementById('content1').innerHTML = `<h2>${data1.title}</h2> <br /> <p>${data1.num_list_users - 100}</p>`;
+    document.getElementById('content2').innerHTML = `<h2>${data2.title}</h2> <br /> <p>${data2.num_list_users - 100}</p>`;
 
 }
 
