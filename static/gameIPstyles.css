@@ -26,6 +26,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.5s ease;
+}
+
+.gameChoiceContent:hover{
+    background-color:transparent;
 }
 
 #content1{
