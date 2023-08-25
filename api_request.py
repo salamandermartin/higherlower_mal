@@ -12,7 +12,7 @@ def api_call_get_list():
 	path = os.environ['PATH']
 
 	headers = {'X-MAL-CLIENT-ID': os.environ.get('CLIENT_ID')}
-	response = requests.get('https://api.myanimelist.net/v2/anime/ranking?ranking_type=bypopularity&limit=50&fields=mean,num_list_users,main_picture', headers = headers).json()
+	response = requests.get('https://api.myanimelist.net/v2/anime/ranking?ranking_type=bypopularity&limit=300&fields=mean,num_list_users,main_picture', headers = headers).json()
 	del response['paging']
 
 	return json.dumps(response)

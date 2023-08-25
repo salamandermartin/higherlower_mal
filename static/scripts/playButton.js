@@ -29,7 +29,14 @@ function loseGame(){
 }
 
 function loadNewData(removeNum, newData){
-    document.getElementById(`gc${removeNum}bg`).style.backgroundImage = `url("${newData.main_picture.large})`;
+    if (removeNum == 2){
+        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${data1.num_list_users}, ${newData.num_list_users}, true, 0, animePool.queryData(animePool.pullFromPool()))"> <div id = "content1"></div> </div>`;
+    }
+    else{
+        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${newData.num_list_users}, ${data2.num_list_users}, true, 0, animePool.queryData(animePool.pullFromPool()))"> <div id = "content1"></div> </div>`;
+    }
+    
+    document.getElementById(`gc${removeNum}bg`).style.backgroundImage = `url("${newData.main_picture.large}")`;
     document.getElementById(`content${removeNum}`).innerHTML = `<h2>${newData.title}</h2> <br /> <p>${newData.num_list_users}</p>`;
 
 }
