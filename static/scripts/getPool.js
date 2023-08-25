@@ -3,7 +3,7 @@ class AnimePool {
         this.available_nums = [];
         this.animeListData = JSON.parse(jsonString.replaceAll("&#34;", '"'));
 
-        for(var i = 0; i < 50; i++){
+        for(var i = 0; i < 300; i++){
             this.available_nums.push(i);
         }
 

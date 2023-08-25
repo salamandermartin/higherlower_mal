@@ -1,9 +1,3 @@
-// function jsonDataLoad(jsonString){
-//     animeListData = JSON.parse(jsonString.replaceAll("&#34;", '"'));
-//     //console.log(animeListData.data[0]);s
-//     return animeListData;
-// }
-
 function loadGameStart(data1, data2) {
     document.querySelector('body').innerHTML = '<div id="ipBackground"></div>';
 
@@ -28,31 +22,31 @@ function loseGame(){
 
 }
 
-function loadNewData(removeNum, newData){
+function loadNewData(removeNum, newData, data1, data2, score){
+    newTitle = newData.title;
+    newUsers = newData.num_list_users;
+    newPic = newData.main_picture.large;
+
     if (removeNum == 2){
-        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${data1.num_list_users}, ${newData.num_list_users}, true, 0, animePool.queryData(animePool.pullFromPool()))"> <div id = "content1"></div> </div>`;
+        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${data1}, ${newUsers}, false, ${score}, animePool.queryData(animePool.pullFromPool()))"> <div id = "content${removeNum}"></div> </div>`;
     }
     else{
-        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${newData.num_list_users}, ${data2.num_list_users}, true, 0, animePool.queryData(animePool.pullFromPool()))"> <div id = "content1"></div> </div>`;
+        document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${newUsers}, ${data2}, true, ${score}, animePool.queryData(animePool.pullFromPool()))"> <div id = "content${removeNum}"></div> </div>`;
     }
     
-    document.getElementById(`gc${removeNum}bg`).style.backgroundImage = `url("${newData.main_picture.large}")`;
-    document.getElementById(`content${removeNum}`).innerHTML = `<h2>${newData.title}</h2> <br /> <p>${newData.num_list_users}</p>`;
+    document.getElementById(`gc${removeNum}bg`).style.backgroundImage = `url("${newPic}")`;
+    document.getElementById(`content${removeNum}`).innerHTML = `<h2>${newTitle}</h2> <p>${newUsers}</p> <br />`;
 
 }
 
 function choose(data1, data2, choice, streak, newData){
-    if (data1 >= data2 && choice == true){
-        streak++;
-        data2 = newData.num_list_users;
+    if (data1 >= data2 && choice === true){
+        loadNewData(2, newData, data1, data2, ++streak);
         console.log(streak);
-        loadNewData(2, newData);
     }
-    else if (data2 >= data1 && choice == false){
-        streak++;
-        data1 = newData.num_list_users;
+    else if (data2 >= data1 && choice === false){
+        loadNewData(1, newData, data1, data2, ++streak);
         console.log(streak);
-        loadNewData(1, newData);
     }
     else {
         loseGame();

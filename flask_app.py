@@ -3,7 +3,7 @@ from api_request import *
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
     anime_list = api_call_get_list()
     return render_template("index.html", template_folder = 'templates', static_folder = 'static', anime_list = anime_list)
