@@ -15,7 +15,7 @@ function loadGameStart(data1, data2) {
 
 
     document.getElementById('content1').innerHTML = `<h2>${data1.title}</h2> <br /> <p>${data1.num_list_users}</p>`;
-    document.getElementById('content2').innerHTML = `<h2>${data2.title}</h2> <br /> <p>${data2.num_list_users}</p>`;
+    document.getElementById('content2').innerHTML = `<h2>${data2.title}</h2> <br /> <p></p>`;
 }
 
 function loseGame(){
@@ -32,10 +32,10 @@ function loadNewData(removeNum, newData, data1, data2, score){
     }
     else{
         document.getElementById(`gc${removeNum}bg`).innerHTML = `<div class="gameChoiceContent" onclick="choose(${newUsers}, ${data2}, true, ${score}, animePool.queryData(animePool.pullFromPool()))"> <div id = "content${removeNum}"></div> </div>`;
-    }
+    }   
     
     document.getElementById(`gc${removeNum}bg`).style.backgroundImage = `url("${newPic}")`;
-    document.getElementById(`content${removeNum}`).innerHTML = `<h2>${newTitle}</h2> <p>${newUsers}</p> <br />`;
+    document.getElementById(`content${removeNum}`).innerHTML = `<h2>${newTitle}</h2> <p></p> <br />`;
 
 }
 
@@ -49,6 +49,6 @@ function choose(data1, data2, choice, streak, newData){
         console.log(streak);
     }
     else {
-        loseGame();
+        loseGame(streak);
     }
 }
