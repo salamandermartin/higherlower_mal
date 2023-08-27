@@ -9,6 +9,26 @@
     z-index: 1000;
 }
 
+.gameChoiceGoUp {
+    animation-name: goUp;
+    animation-duration: 1s;
+}
+
+.gameChoiceGoDown{
+    animation-name: goDown;
+    animation-duration: 0.6s;
+}
+
+@keyframes goUp {
+    from {transform: translateY(0%);}
+    to {transform: translateY(100%);}
+}
+
+@keyframes goDown {
+    from {transform: translateY(0%);}
+    to {transform: translateY(-100%);}
+}
+
 .gameChoice{
     color: white;
     width: 50%;
