@@ -22,15 +22,15 @@ body {
 }
 
 #content-container {
-    background-color: rgba(108,112,110, 0.85);
-    padding-top: 15px;
+    background-color: rgba(10,10,10, 0.65);
+    padding-top: 5%;
     padding-bottom: 25px;
     border-radius: 15px;
     color: white;
     background-size: cover;
     text-align: center;
-    margin: 100px;
-    height: 75%;
+    height: 100%;
+    width: 100%;
 }
 
 #background {
@@ -42,4 +42,22 @@ body {
     top: 0px;
     left: 0px;
     z-index: 1000;
+}
+
+.heading {
+    margin-top: 40px;
+    font-size: 65px;
+}
+
+#heading-bg {
+    background-color: #183c76;
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    border: black solid 3px;
+}
+
+#startText {
+    font-size: 22px;
 }
