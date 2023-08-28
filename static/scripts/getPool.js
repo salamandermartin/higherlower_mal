@@ -16,8 +16,8 @@ class AnimePool {
         return num_pick;
     }
 
-    queryData(x){
-        return this.animeListData.data[x].node;
+    queryRandomData(){
+        return this.animeListData.data[this.pullFromPool()].node;
     }
 
     resetPool(){

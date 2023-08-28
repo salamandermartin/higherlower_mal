@@ -5,15 +5,17 @@
     <link rel="stylesheet" href="/static/styles.css" type="text/css" />
     <link rel="stylesheet" href="/static/gameIPstyles.css" />
     <script src="/static/scripts/getPool.js"></script>
+
+    <script type="text/javascript">
+        let data_json = '{{anime_list}}';
+        let animePool = new AnimePool(data_json);
+    </script>
+
+
     <script src="/static/scripts/playButton.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     
 
-    <script type="text/javascript">
-        let data_json = '{{anime_list}}';
-
-        let animePool = new AnimePool(data_json);
-    </script>
 
 </head>
 
@@ -25,7 +27,7 @@
 
                 <p id="startText"> Can you guess which anime ranks higher <br /> in terms of popularity? </p>
 
-                <div class='play-button' onclick="loadGameStart(animePool.queryData(animePool.pullFromPool()), animePool.queryData(animePool.pullFromPool()))">Play &#187</div>
+                <div class='play-button' onclick="loadGameStart(animePool.queryRandomData(), animePool.queryRandomData())">Play &#187</div>
             </div>
 
         </div>

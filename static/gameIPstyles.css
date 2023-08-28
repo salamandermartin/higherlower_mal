@@ -11,7 +11,7 @@
 
 .gameChoiceGoUp {
     animation-name: goUp;
-    animation-duration: 1s;
+    animation-duration: 0.6s;
 }
 
 .gameChoiceGoDown{
@@ -21,12 +21,12 @@
 
 @keyframes goUp {
     from {transform: translateY(0%);}
-    to {transform: translateY(100%);}
+    to {transform: translateY(-100%);}
 }
 
 @keyframes goDown {
     from {transform: translateY(0%);}
-    to {transform: translateY(-100%);}
+    to {transform: translateY(100%);}
 }
 
 .gameChoice{
